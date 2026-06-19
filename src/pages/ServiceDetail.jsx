@@ -45,6 +45,14 @@ export default function ServiceDetail() {
             className="mt-[26px] text-[clamp(40px,7vw,120px)] font-medium leading-[0.95] tracking-[-0.03em]"
             segments={[{ text: 'Software + AI Integration' }]}
           />
+
+          <div className="reveal group mt-[clamp(40px,5vw,72px)] aspect-[16/9] overflow-hidden rounded-[12px] bg-bg-deep">
+            <img
+              src="/uploads/svc-ai-hero.jpg"
+              alt=""
+              className="h-full w-full object-cover grayscale-[0.55] brightness-90 transition-[filter,transform] duration-700 ease-brand group-hover:scale-[1.03] group-hover:grayscale-0 group-hover:brightness-100"
+            />
+          </div>
         </div>
       </section>
 
@@ -73,6 +81,14 @@ export default function ServiceDetail() {
             <p className="reveal d1 mt-5 max-w-[68ch] text-[clamp(16px,1.4vw,20px)] leading-[1.55] text-dim">
               We monitor, measure and tune in production so the system keeps getting smarter — with security and compliance built in from day one.
             </p>
+
+            <div className="reveal group mt-[clamp(40px,5vw,64px)] aspect-[16/10] overflow-hidden rounded-[12px] bg-bg-deep">
+              <img
+                src="/uploads/svc-ai-detail.jpg"
+                alt=""
+                className="h-full w-full object-cover grayscale-[0.55] brightness-90 transition-[filter,transform] duration-700 ease-brand group-hover:scale-[1.03] group-hover:grayscale-0 group-hover:brightness-100"
+              />
+            </div>
 
             {/* sub-services */}
             <div className="reveal mt-[clamp(56px,7vw,90px)]">
