@@ -1,0 +1,84 @@
+@import 'tailwindcss';
+
+/* =========================================================================
+   Aetos — design tokens, fonts, keyframes. Dark editorial portfolio.
+   Type: PolySans (Reap brand grotesque)
+   ========================================================================= */
+
+/* ---- PolySans (local) ---- */
+@font-face { font-family:'PolySans'; src:url('/fonts/PolySans-Slim.otf') format('opentype'); font-weight:300; font-style:normal; font-display:swap; }
+@font-face { font-family:'PolySans'; src:url('/fonts/PolySans-Neutral.otf') format('opentype'); font-weight:400; font-style:normal; font-display:swap; }
+@font-face { font-family:'PolySans'; src:url('/fonts/PolySans-Median.otf') format('opentype'); font-weight:500; font-style:normal; font-display:swap; }
+@font-face { font-family:'PolySans'; src:url('/fonts/PolySans-Bulky.otf') format('opentype'); font-weight:700; font-style:normal; font-display:swap; }
+@font-face { font-family:'PolySansMono'; src:url('/fonts/PolySansTrial-NeutralMono.otf') format('opentype'); font-weight:400; font-style:normal; font-display:swap; }
+
+/* ---- Tailwind theme tokens ---- */
+@theme {
+  --color-bg:        #141311;
+  --color-bg-deep:   #0b0b0a;
+  --color-surface:   #201e1a;
+  --color-surface-2: #29261f;
+  --color-chip:      #2b2924;
+  --color-line:      rgba(237, 233, 225, 0.12);
+  --color-line-2:    rgba(237, 233, 225, 0.22);
+  --color-text:      #ece8e0;
+  --color-dim:       #9a938a;
+  --color-mute:      #6f6962;
+  --color-accent:    #6366e8;
+
+  --font-sans: 'PolySans', -apple-system, 'Helvetica Neue', Arial, sans-serif;
+  --font-mono: 'PolySansMono', ui-monospace, 'SF Mono', Menlo, monospace;
+
+  --ease-brand: cubic-bezier(0.2, 0.8, 0.2, 1);
+
+  --animate-marquee: scroll-x 48s linear infinite;
+
+  --max-w-shell: 1680px;
+}
+
+@keyframes scroll-x { to { transform: translateX(calc(-50% - 10px)); } }
+
+/* ---- base ---- */
+@layer base {
+  html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+  body {
+    margin: 0; background: var(--color-bg); color: var(--color-text);
+    font-family: var(--font-sans); font-weight: 400; font-size: 17px; line-height: 1.5;
+    overflow-x: hidden;
+  }
+  ::selection { background: var(--color-text); color: var(--color-bg); }
+  a { color: inherit; text-decoration: none; }
+  button { font-family: inherit; cursor: pointer; }
+  img { display: block; max-width: 100%; }
+}
+
+@layer components {
+  /* responsive edge padding used across sections */
+  .shell {
+    max-width: var(--max-w-shell);
+    margin-inline: auto;
+    padding-inline: clamp(22px, 5vw, 88px);
+  }
+
+  /* scroll reveal */
+  .reveal { opacity: 0; transform: translateY(28px); transition: opacity .9s var(--ease-brand), transform .9s var(--ease-brand); }
+  .reveal.in { opacity: 1; transform: none; }
+  .reveal.d1 { transition-delay: .08s; }
+  .reveal.d2 { transition-delay: .16s; }
+  .reveal.d3 { transition-delay: .24s; }
+}
+
+/* hide scrollbar on the process rail */
+.no-scrollbar { scrollbar-width: none; }
+.no-scrollbar::-webkit-scrollbar { display: none; }
+
+/* custom cursor active: hide the native one (fine pointers only) */
+@media (hover: hover) and (pointer: fine) {
+  .cursor-none, .cursor-none * { cursor: none !important; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+  .reveal { opacity: 1 !important; transform: none !important; }
+  html { scroll-behavior: auto; }
+}
