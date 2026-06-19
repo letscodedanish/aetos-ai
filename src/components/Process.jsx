@@ -3,10 +3,10 @@ import { ArrowLeft, ArrowRight, IcoSearch, IcoGlobe, IcoBulb, IcoPen, IcoCode, I
 import SplitReveal from '../motion/SplitReveal'
 
 const STEPS = [
-  { n: '01', Ico: IcoSearch, title: 'Discovery', body: 'We map your goals, systems and bottlenecks in focused working sessions — no guesswork.' },
-  { n: '02', Ico: IcoBulb, title: 'Strategy', body: 'A clear roadmap: architecture, model choices, integrations and a delivery timeline.' },
-  { n: '03', Ico: IcoCode, title: 'Build & Integrate', body: 'Agile delivery with weekly demos, wired into your CRM, tools and data — no rip-and-replace.' },
-  { n: '04', Ico: IcoRocket, title: 'Optimize', body: 'We monitor, measure and tune in production so the system keeps getting smarter.' },
+  { n: '01', Ico: IcoSearch, title: 'Discovery', body: 'We map your goals, systems and bottlenecks in focused working sessions — no guesswork.', img: 'proc-discovery.jpg' },
+  { n: '02', Ico: IcoBulb, title: 'Strategy', body: 'A clear roadmap: architecture, model choices, integrations and a delivery timeline.', img: 'proc-strategy.jpg' },
+  { n: '03', Ico: IcoCode, title: 'Build & Integrate', body: 'Agile delivery with weekly demos, wired into your CRM, tools and data — no rip-and-replace.', img: 'proc-build.jpg' },
+  { n: '04', Ico: IcoRocket, title: 'Optimize', body: 'We monitor, measure and tune in production so the system keeps getting smarter.', img: 'proc-optimize.jpg' },
 ]
 
 export default function Process() {
@@ -105,20 +105,26 @@ export default function Process() {
           data-cursor="Drag"
           className="no-scrollbar mt-[clamp(40px,5vw,72px)] flex cursor-grab snap-x snap-mandatory gap-5 overflow-x-auto pb-2.5"
         >
-          {STEPS.map(({ n, Ico, title, body }) => (
+          {STEPS.map(({ n, Ico, title, body, img }) => (
             <article
               key={n}
               data-pcard
-              className="relative flex min-h-[540px] flex-none basis-[clamp(300px,32vw,460px)] snap-start select-none flex-col rounded-[14px] bg-surface p-[26px]"
+              className="group relative flex min-h-[540px] flex-none basis-[clamp(300px,32vw,460px)] snap-start select-none flex-col rounded-[14px] bg-surface p-[14px]"
             >
-              <div className="flex items-start justify-between">
-                <span className="grid h-12 w-12 place-items-center rounded-[11px] bg-chip text-text [&_svg]:h-[22px] [&_svg]:w-[22px]">
+              <div className="relative flex-1 overflow-hidden rounded-[10px] bg-bg-deep">
+                <img
+                  src={`/uploads/${img}`}
+                  alt=""
+                  draggable="false"
+                  className="h-full w-full object-cover grayscale-[0.6] brightness-[0.8] transition-[filter,transform] duration-700 ease-brand group-hover:scale-[1.05] group-hover:grayscale-0 group-hover:brightness-100"
+                />
+                <span className="absolute left-3 top-3 grid h-12 w-12 place-items-center rounded-[11px] bg-bg/70 text-text backdrop-blur-sm [&_svg]:h-[22px] [&_svg]:w-[22px]">
                   <Ico />
                 </span>
-                <span className="font-mono text-[13px] tracking-[0.1em] text-mute">{n}</span>
+                <span className="absolute right-3 top-3 font-mono text-[13px] tracking-[0.1em] text-text/80">{n}</span>
               </div>
-              <div className="mt-auto">
-                <h4 className="mb-3.5 text-[clamp(24px,2vw,32px)] font-medium tracking-[-0.01em]">{title}</h4>
+              <div className="px-3 pb-2 pt-5">
+                <h4 className="mb-3 text-[clamp(24px,2vw,32px)] font-medium tracking-[-0.01em]">{title}</h4>
                 <p className="m-0 text-[16px] leading-[1.45] text-dim">{body}</p>
               </div>
             </article>

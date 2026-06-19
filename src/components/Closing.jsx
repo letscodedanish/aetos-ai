@@ -26,10 +26,19 @@ export default function Closing() {
             onMouseLeave={mag.onMouseLeave}
             href="mailto:hello@aetos.ai"
             data-cursor="↗"
-            className="flex w-full min-w-[320px] flex-none items-end justify-between gap-[30px] self-stretch rounded-2xl border border-line p-[26px] font-mono text-[12px] uppercase tracking-[0.14em] text-dim transition-colors duration-300 ease-brand hover:border-text hover:bg-[rgba(237,233,225,0.04)] hover:text-text min-[1081px]:w-auto"
+            className="group flex w-full min-w-[320px] flex-none flex-col self-stretch overflow-hidden rounded-2xl border border-line transition-colors duration-300 ease-brand hover:border-text min-[1081px]:w-[420px]"
           >
-            Start a conversation
-            <ArrowRight className="h-4 w-4" />
+            <div className="relative aspect-[16/10] overflow-hidden bg-bg-deep min-[1081px]:aspect-auto min-[1081px]:flex-1">
+              <img
+                src="/uploads/cta-conversation.jpg"
+                alt=""
+                className="h-full w-full object-cover grayscale-[0.6] brightness-[0.8] transition-[filter,transform] duration-700 ease-brand group-hover:scale-[1.05] group-hover:grayscale-0 group-hover:brightness-100"
+              />
+            </div>
+            <div className="flex items-center justify-between gap-[30px] p-[26px] font-mono text-[12px] uppercase tracking-[0.14em] text-dim transition-colors duration-300 ease-brand group-hover:text-text">
+              Start a conversation
+              <ArrowRight className="h-4 w-4 transition-transform duration-300 ease-brand group-hover:translate-x-1" />
+            </div>
           </motion.a>
         </div>
       </div>
