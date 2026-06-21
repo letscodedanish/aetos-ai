@@ -14,7 +14,7 @@ const HERO_STATS = [
   ['99.9%', 'Uptime SLA'],
   ['40%', 'Avg. cost saved'],
   ['24/7', 'Autonomous ops'],
-  ['10M+', 'Tasks automated / mo'],
+  ['10+', 'Tasks automated / mo'],
 ]
 
 export default function Home() {
