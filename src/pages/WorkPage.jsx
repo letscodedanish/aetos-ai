@@ -2,18 +2,12 @@ import { useEffect, useRef } from 'react'
 import { useReveals } from '../hooks'
 import SplitReveal from '../motion/SplitReveal'
 import Footer from '../components/Footer'
-
-const PROJECTS = [
-  { img: 'finance', name: 'FinTrack', ind: 'Fintech', tags: ['Next.js', 'Plaid · Dwolla'], url: 'https://bank-client-sigma.vercel.app/sign-in', type: 'live' },
-  { img: 'automation', name: 'ZapFlow', ind: 'Automation', tags: ['Next.js 14', 'Drag-and-drop'], url: 'https://ai-automation-builder.vercel.app', type: 'live' },
-  { img: 'email', name: 'AI Email Client', ind: 'Productivity', tags: ['OpenAI', 'Stripe'], url: 'https://github.com/letscodedanish/Email-Client-SaaS', type: 'code' },
-  { img: 'sehat', name: 'SehatSathi', ind: 'Healthcare', tags: ['React · Node', 'Telemedicine'], url: 'https://github.com/letscodedanish/Sehat-Sathi', type: 'code' },
-  { img: 'ide', name: 'Advance IDE', ind: 'DevTools', tags: ['Kubernetes', 'Monaco · Docker'], url: 'https://ide-frontend-git-main-letscodedanishs-projects.vercel.app/', type: 'live' },
-  { img: 'dynish', name: 'Dynish', ind: 'Onboarding', tags: ['React', 'Client portal'], url: 'https://dynish-client-app.vercel.app/', type: 'live' },
-]
+import { useCurtain } from '../motion/Curtain'
+import { PROJECTS } from '../data/projects'
 
 export default function WorkPage() {
   useReveals()
+  const { go } = useCurtain()
   const rail = useRef(null)
 
   // wheel-to-horizontal + pointer drag
@@ -80,17 +74,15 @@ export default function WorkPage() {
           className="no-scrollbar mt-[clamp(40px,5vw,72px)] flex cursor-grab gap-8 overflow-x-auto px-[clamp(22px,5vw,88px)] pb-4"
         >
           {PROJECTS.map((p) => (
-            <a
-              key={p.name}
-              href={p.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              data-cursor={p.type === 'code' ? 'Code ↗' : 'Live ↗'}
+            <button
+              key={p.slug}
+              onClick={() => go(`/work/${p.slug}`, p.name)}
+              data-cursor="View"
               className="group flex w-[min(78vw,720px)] flex-none flex-col text-left"
             >
               <div className="aspect-[16/10] w-full overflow-hidden rounded-[8px] bg-surface">
                 <img
-                  src={`/uploads/portfolio/${p.img}.png`}
+                  src={p.img}
                   alt={`${p.name} preview`}
                   className="h-full w-full select-none object-cover object-top grayscale-[0.55] brightness-90 transition-[filter,transform] duration-700 ease-brand group-hover:scale-[1.04] group-hover:grayscale-0 group-hover:brightness-100"
                   draggable="false"
@@ -100,12 +92,13 @@ export default function WorkPage() {
                 <h4 className="m-0 text-[clamp(20px,1.8vw,28px)] font-medium tracking-[-0.01em]">{p.name}</h4>
                 <span className="font-mono text-[11px] uppercase tracking-[0.08em] text-mute">{p.ind}</span>
               </div>
+              <p className="mt-3 max-w-[560px] text-[15px] leading-[1.5] text-dim">{p.short}</p>
               <div className="mt-3.5 flex flex-wrap gap-2">
                 {p.tags.map((t) => (
                   <span key={t} className="rounded-[7px] bg-chip px-[11px] py-1.5 font-mono text-[10px] uppercase tracking-[0.08em] text-dim">{t}</span>
                 ))}
               </div>
-            </a>
+            </button>
           ))}
         </div>
       </section>

@@ -40,7 +40,7 @@ export default function App() {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/work" element={<WorkPage />} />
-        <Route path="/work/onpoint" element={<CaseStudy />} />
+        <Route path="/work/:slug" element={<CaseStudy />} />
         <Route path="/services/ai-integration" element={<ServiceDetail />} />
         <Route path="/contact" element={<Contact />} />
       </Routes>
