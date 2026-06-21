@@ -1,21 +1,19 @@
 import { useEffect, useRef } from 'react'
 import { useReveals } from '../hooks'
 import SplitReveal from '../motion/SplitReveal'
-import { useCurtain } from '../motion/Curtain'
 import Footer from '../components/Footer'
 
 const PROJECTS = [
-  { img: 'pasted-1781868421009-0.png', name: 'Payment Processing Platform', ind: 'Fintech', tags: ['−40% latency', '3× throughput'] },
-  { img: 'pasted-1781868353946-0.png', name: 'Telehealth Solution', ind: 'Healthcare', tags: ['HIPAA', '+200% patients'] },
-  { img: 'pasted-1781868400474-1.png', name: 'Fraud Detection System', ind: 'Finance', tags: ['Real-time', '87% reduction'] },
-  { img: 'pasted-1781868361394-0.png', name: 'IoT Predictive Maintenance', ind: 'Manufacturing', tags: ['IoT', '−73% downtime'] },
-  { img: 'pasted-1781868367116-0.png', name: 'Intelligent Intake Pipeline', ind: 'Logistics', tags: ['Automation', '3 days → mins'] },
-  { img: 'pasted-1781868408069-0.png', name: 'E-commerce Transformation', ind: 'Retail', tags: ['Microservices', '−30% cost'] },
+  { img: 'finance', name: 'FinTrack', ind: 'Fintech', tags: ['Next.js', 'Plaid · Dwolla'], url: 'https://bank-client-sigma.vercel.app/sign-in', type: 'live' },
+  { img: 'automation', name: 'ZapFlow', ind: 'Automation', tags: ['Next.js 14', 'Drag-and-drop'], url: 'https://ai-automation-builder.vercel.app', type: 'live' },
+  { img: 'email', name: 'AI Email Client', ind: 'Productivity', tags: ['OpenAI', 'Stripe'], url: 'https://github.com/letscodedanish/Email-Client-SaaS', type: 'code' },
+  { img: 'sehat', name: 'SehatSathi', ind: 'Healthcare', tags: ['React · Node', 'Telemedicine'], url: 'https://github.com/letscodedanish/Sehat-Sathi', type: 'code' },
+  { img: 'ide', name: 'Advance IDE', ind: 'DevTools', tags: ['Kubernetes', 'Monaco · Docker'], url: 'https://ide-frontend-git-main-letscodedanishs-projects.vercel.app/', type: 'live' },
+  { img: 'dynish', name: 'Dynish', ind: 'Onboarding', tags: ['React', 'Client portal'], url: 'https://dynish-client-app.vercel.app/', type: 'live' },
 ]
 
 export default function WorkPage() {
   useReveals()
-  const { go } = useCurtain()
   const rail = useRef(null)
 
   // wheel-to-horizontal + pointer drag
@@ -82,17 +80,19 @@ export default function WorkPage() {
           className="no-scrollbar mt-[clamp(40px,5vw,72px)] flex cursor-grab gap-8 overflow-x-auto px-[clamp(22px,5vw,88px)] pb-4"
         >
           {PROJECTS.map((p) => (
-            <button
+            <a
               key={p.name}
-              onClick={() => go('/work/onpoint', p.name)}
-              data-cursor="View"
+              href={p.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              data-cursor={p.type === 'code' ? 'Code ↗' : 'Live ↗'}
               className="group flex w-[min(78vw,720px)] flex-none flex-col text-left"
             >
-              <div className="aspect-[4/3] w-full overflow-hidden rounded-[8px] bg-surface">
+              <div className="aspect-[16/10] w-full overflow-hidden rounded-[8px] bg-surface">
                 <img
-                  src={`/uploads/${p.img}`}
-                  alt=""
-                  className="h-full w-full select-none object-cover grayscale-[0.55] brightness-90 transition-[filter,transform] duration-700 ease-brand group-hover:scale-[1.04] group-hover:grayscale-0 group-hover:brightness-100"
+                  src={`/uploads/portfolio/${p.img}.png`}
+                  alt={`${p.name} preview`}
+                  className="h-full w-full select-none object-cover object-top grayscale-[0.55] brightness-90 transition-[filter,transform] duration-700 ease-brand group-hover:scale-[1.04] group-hover:grayscale-0 group-hover:brightness-100"
                   draggable="false"
                 />
               </div>
@@ -105,7 +105,7 @@ export default function WorkPage() {
                   <span key={t} className="rounded-[7px] bg-chip px-[11px] py-1.5 font-mono text-[10px] uppercase tracking-[0.08em] text-dim">{t}</span>
                 ))}
               </div>
-            </button>
+            </a>
           ))}
         </div>
       </section>

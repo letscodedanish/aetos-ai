@@ -3,10 +3,10 @@ import { ArrowLeft, ArrowRight, IcoSearch, IcoGlobe, IcoBulb, IcoPen, IcoCode, I
 import SplitReveal from '../motion/SplitReveal'
 
 const STEPS = [
-  { n: '01', Ico: IcoSearch, title: 'Discovery', body: 'We map your goals, systems and bottlenecks in focused working sessions — no guesswork.', img: 'proc-discovery.jpg' },
-  { n: '02', Ico: IcoBulb, title: 'Strategy', body: 'A clear roadmap: architecture, model choices, integrations and a delivery timeline.', img: 'proc-strategy.jpg' },
-  { n: '03', Ico: IcoCode, title: 'Build & Integrate', body: 'Agile delivery with weekly demos, wired into your CRM, tools and data — no rip-and-replace.', img: 'proc-build.jpg' },
-  { n: '04', Ico: IcoRocket, title: 'Optimize', body: 'We monitor, measure and tune in production so the system keeps getting smarter.', img: 'proc-optimize.jpg' },
+  { n: '01', Ico: IcoSearch, title: 'Discovery', body: 'We map your goals, systems and bottlenecks in focused working sessions — no guesswork.', img: 'photo-1522071820081-009f0129c71c' },
+  { n: '02', Ico: IcoBulb, title: 'Strategy', body: 'A clear roadmap: architecture, model choices, integrations and a delivery timeline.', img: 'photo-1454165804606-c3d57bc86b40' },
+  { n: '03', Ico: IcoCode, title: 'Build & Integrate', body: 'Agile delivery with weekly demos, wired into your CRM, tools and data — no rip-and-replace.', img: 'photo-1607082348824-0a96f2a4b9da' },
+  { n: '04', Ico: IcoRocket, title: 'Optimize', body: 'We monitor, measure and tune in production so the system keeps getting smarter.', img: 'photo-1460925895917-afdab827c52f' },
 ]
 
 export default function Process() {
@@ -113,7 +113,7 @@ export default function Process() {
             >
               <div className="relative flex-1 overflow-hidden rounded-[10px] bg-bg-deep">
                 <img
-                  src={`/uploads/${img}`}
+                  src={`https://images.unsplash.com/${img}?auto=format&fit=crop&w=1400&q=80`}
                   alt=""
                   draggable="false"
                   className="h-full w-full object-cover grayscale-[0.6] brightness-[0.8] transition-[filter,transform] duration-700 ease-brand group-hover:scale-[1.05] group-hover:grayscale-0 group-hover:brightness-100"

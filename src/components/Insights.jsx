@@ -2,7 +2,7 @@ import MetaRow from './MetaRow'
 
 const ARTICLES = [
   {
-    img: 'pasted-1781868401695-0.png',
+    img: 'photo-1488590528505-98d2b5aba04b',
     title: 'Shipping AI to production without the rip-and-replace',
     body: 'How we fuse models into the tools you already run, safely.',
     tag: 'Engineering',
@@ -10,7 +10,7 @@ const ARTICLES = [
     d: '',
   },
   {
-    img: 'pasted-1781868408069-0.png',
+    img: 'photo-1551288049-bebda4e38f71',
     title: 'Catching churn weeks early with predictive models',
     body: 'Turning raw signals into decisions before revenue walks out.',
     tag: 'Analytics',
@@ -30,7 +30,7 @@ export default function Insights() {
             <a key={a.title} href="#" data-cursor="Read" className={`reveal ${a.d} group block`}>
               <div className="aspect-[16/11] overflow-hidden rounded-[4px] bg-surface">
                 <img
-                  src={`/uploads/${a.img}`}
+                  src={`https://images.unsplash.com/${a.img}?auto=format&fit=crop&w=1400&q=80`}
                   alt=""
                   className="h-full w-full object-cover grayscale-[0.5] brightness-90 transition-[filter,transform] duration-700 ease-brand group-hover:scale-[1.04] group-hover:grayscale-0 group-hover:brightness-100"
                 />

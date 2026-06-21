@@ -30,7 +30,7 @@ export default function Closing() {
           >
             <div className="relative aspect-[16/10] overflow-hidden bg-bg-deep min-[1081px]:aspect-auto min-[1081px]:flex-1">
               <img
-                src="/uploads/cta-conversation.jpg"
+                src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=1400&q=80"
                 alt=""
                 className="h-full w-full object-cover grayscale-[0.6] brightness-[0.8] transition-[filter,transform] duration-700 ease-brand group-hover:scale-[1.05] group-hover:grayscale-0 group-hover:brightness-100"
               />

@@ -47,7 +47,7 @@ function Frame({ img, className = '', full = false }) {
       className={`reveal ${className} group overflow-hidden rounded-lg bg-surface ${full ? 'col-span-full aspect-[16/9]' : 'aspect-[4/3]'}`}
     >
       <img
-        src={`/uploads/${img}`}
+        src={`https://images.unsplash.com/${img}?auto=format&fit=crop&w=1400&q=80`}
         alt=""
         className="h-full w-full object-cover grayscale-[0.55] brightness-90 transition-[filter,transform] duration-700 ease-brand group-hover:scale-[1.04] group-hover:grayscale-0 group-hover:brightness-100"
       />
@@ -88,7 +88,7 @@ export default function CaseStudy() {
 
           <div className="group mt-[clamp(40px,5vw,72px)] aspect-[16/9] overflow-hidden rounded-lg bg-surface">
             <img
-              src="/uploads/pasted-1781868421009-0.png"
+              src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1600&q=80"
               alt=""
               className="h-full w-full object-cover transition-transform duration-700 ease-brand group-hover:scale-[1.03]"
             />
@@ -117,9 +117,9 @@ export default function CaseStudy() {
       <section className="pb-[clamp(90px,13vh,190px)] pt-0">
         <div className="shell">
           <div className="grid grid-cols-1 gap-[22px] min-[621px]:grid-cols-2">
-            <Frame img="pasted-1781868361394-0.png" full />
-            <Frame img="pasted-1781868367116-0.png" />
-            <Frame img="pasted-1781868408069-0.png" className="d1" />
+            <Frame img="photo-1581091226825-a6a2a5aee158" full />
+            <Frame img="photo-1454165804606-c3d57bc86b40" />
+            <Frame img="photo-1519085360753-af0119f7cbe7" className="d1" />
           </div>
         </div>
       </section>

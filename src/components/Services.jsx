@@ -2,12 +2,12 @@ import MetaRow from './MetaRow'
 import SplitReveal from '../motion/SplitReveal'
 
 const SERVICES = [
-  { chip: 'Integration', title: 'Software + AI Integration', body: 'Fuse battle-tested AI engines into the tools you already run — CRM, booking, ops — automating complex workflows and predicting customer behaviour. No rip-and-replace.', img: 'svc-integration.jpg', d: '' },
-  { chip: 'Automation', title: 'Workflow Automation', body: 'Replace manual processes with intelligent pipelines that monitor, act and escalate 24/7.', img: 'svc-automation.jpg', d: 'd1' },
-  { chip: 'Conversational', title: 'AI Chatbots & Assistants', body: 'Instant, personalised conversations across every customer touchpoint.', img: 'svc-chatbot.jpg', d: 'd2' },
-  { chip: 'Analytics', title: 'AI-Powered Analytics', body: 'Turn raw data into decisions with real-time dashboards and insight.', img: 'svc-analytics.jpg', d: '' },
-  { chip: 'Reputation', title: 'Reputation Management', body: 'Automated review aggregation, sentiment analytics and smart alerts.', img: 'svc-reputation.jpg', d: 'd1' },
-  { chip: 'Predictive', title: 'Predictive Analytics Engine', body: "See tomorrow's opportunities today. AI that forecasts trends, predicts churn and surfaces hidden revenue.", img: 'svc-predictive.jpg', d: 'd2' },
+  { chip: 'Integration', title: 'Software + AI Integration', body: 'Fuse battle-tested AI engines into the tools you already run — CRM, booking, ops — automating complex workflows and predicting customer behaviour. No rip-and-replace.', img: 'photo-1518770660439-4636190af475', d: '' },
+  { chip: 'Automation', title: 'Workflow Automation', body: 'Replace manual processes with intelligent pipelines that monitor, act and escalate 24/7.', img: 'photo-1565514020179-026b92b84bb6', d: 'd1' },
+  { chip: 'Conversational', title: 'AI Chatbots & Assistants', body: 'Instant, personalised conversations across every customer touchpoint.', img: 'photo-1593642702821-c8da6771f0c6', d: 'd2' },
+  { chip: 'Analytics', title: 'AI-Powered Analytics', body: 'Turn raw data into decisions with real-time dashboards and insight.', img: 'photo-1551288049-bebda4e38f71', d: '' },
+  { chip: 'Reputation', title: 'Reputation Management', body: 'Automated review aggregation, sentiment analytics and smart alerts.', img: 'photo-1556155092-490a1ba16284', d: 'd1' },
+  { chip: 'Predictive', title: 'Predictive Analytics Engine', body: "See tomorrow's opportunities today. AI that forecasts trends, predicts churn and surfaces hidden revenue.", img: 'photo-1526374965328-7f61d4dc18c5', d: 'd2' },
 ]
 
 function ServiceCard({ chip, title, body, img, d }) {
@@ -19,7 +19,7 @@ function ServiceCard({ chip, title, body, img, d }) {
     >
       <div className="relative aspect-[16/10] overflow-hidden rounded-[10px] bg-bg-deep">
         <img
-          src={`/uploads/${img}`}
+          src={`https://images.unsplash.com/${img}?auto=format&fit=crop&w=1400&q=80`}
           alt=""
           className="h-full w-full object-cover grayscale-[0.6] brightness-[0.85] transition-[filter,transform] duration-700 ease-brand group-hover:scale-[1.05] group-hover:grayscale-0 group-hover:brightness-100"
         />

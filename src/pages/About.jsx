@@ -40,10 +40,10 @@ export default function About() {
           />
 
           <div className="mt-[clamp(30px,4vw,56px)] grid grid-cols-1 items-stretch gap-[clamp(30px,5vw,80px)] min-[1081px]:grid-cols-2">
-            {/* portrait / studio image placeholder — drop one at /uploads/portrait.jpg */}
+            {/* portrait / studio image */}
             <div className="aspect-[3/4] overflow-hidden rounded-[6px] bg-surface">
               <img
-                src="/uploads/portrait.jpg"
+                src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=1200&q=80"
                 alt="Aetos AI"
                 className="h-full w-full object-cover"
                 onError={(e) => { e.currentTarget.style.display = 'none' }}

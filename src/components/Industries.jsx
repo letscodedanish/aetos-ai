@@ -1,10 +1,10 @@
 import MetaRow from './MetaRow'
 
 const INDUSTRIES = [
-  ['01', 'Healthcare', 'HIPAA-grade systems, telehealth and clinical data intelligence.', 'ind-healthcare.jpg'],
-  ['02', 'Finance', 'Secure payments, fraud detection and regulatory-ready platforms.', 'ind-finance.jpg'],
-  ['03', 'Retail', 'Omnichannel experiences, demand forecasting and personalization.', 'ind-retail.jpg'],
-  ['04', 'Manufacturing', 'IoT monitoring, predictive maintenance and supply-chain optimization.', 'ind-manufacturing.jpg'],
+  ['01', 'Healthcare', 'HIPAA-grade systems, telehealth and clinical data intelligence.', 'photo-1576091160550-2173dba999ef'],
+  ['02', 'Finance', 'Secure payments, fraud detection and regulatory-ready platforms.', 'photo-1563013544-824ae1b704d3'],
+  ['03', 'Retail', 'Omnichannel experiences, demand forecasting and personalization.', 'photo-1519085360753-af0119f7cbe7'],
+  ['04', 'Manufacturing', 'IoT monitoring, predictive maintenance and supply-chain optimization.', 'photo-1577563908411-5077b6dc7624'],
 ]
 
 export default function Industries() {
@@ -22,7 +22,7 @@ export default function Industries() {
             <div key={name} className={`reveal d${i} group flex min-h-[260px] flex-col overflow-hidden rounded-[14px] bg-surface p-[12px] transition-colors duration-[400ms] ease-brand hover:bg-surface-2`}>
               <div className="relative aspect-[16/11] overflow-hidden rounded-[9px] bg-bg-deep">
                 <img
-                  src={`/uploads/${img}`}
+                  src={`https://images.unsplash.com/${img}?auto=format&fit=crop&w=1400&q=80`}
                   alt=""
                   className="h-full w-full object-cover grayscale-[0.6] brightness-[0.85] transition-[filter,transform] duration-700 ease-brand group-hover:scale-[1.05] group-hover:grayscale-0 group-hover:brightness-100"
                 />

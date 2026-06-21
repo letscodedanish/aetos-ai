@@ -7,12 +7,12 @@ const W = { w1: 'w-[360px]', w2: 'w-[560px]', w3: 'w-[300px]' }
 
 // marquee tiles: [image, width-key]
 const TILES = [
-  ['pasted-1781868421009-0.png', 'w1'],
-  ['pasted-1781868361394-0.png', 'w2'],
-  ['pasted-1781868367116-0.png', 'w3'],
-  ['pasted-1781868353946-0.png', 'w1'],
-  ['pasted-1781868400474-1.png', 'w2'],
-  ['pasted-1781868408069-0.png', 'w3'],
+  ['photo-1518770660439-4636190af475', 'w1'],
+  ['photo-1581091226825-a6a2a5aee158', 'w2'],
+  ['photo-1573164713988-8665fc963095', 'w3'],
+  ['photo-1488590528505-98d2b5aba04b', 'w1'],
+  ['photo-1531297484001-80022131f5a1', 'w2'],
+  ['photo-1504384308090-c894fdcc538d', 'w3'],
 ]
 
 const MASK = 'linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent)'
@@ -23,7 +23,7 @@ function Tile({ img, w, hidden }) {
       className={`${W[w]} h-[300px] min-[621px]:h-[430px] flex-none overflow-hidden rounded-[4px] bg-surface`}
       aria-hidden={hidden || undefined}
     >
-      <img src={`/uploads/${img}`} alt="" className="h-full w-full object-cover" />
+      <img src={`https://images.unsplash.com/${img}?auto=format&fit=crop&w=1400&q=80`} alt="" className="h-full w-full object-cover" />
     </div>
   )
 }

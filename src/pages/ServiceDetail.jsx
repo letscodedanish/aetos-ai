@@ -48,7 +48,7 @@ export default function ServiceDetail() {
 
           <div className="reveal group mt-[clamp(40px,5vw,72px)] aspect-[16/9] overflow-hidden rounded-[12px] bg-bg-deep">
             <img
-              src="/uploads/svc-ai-hero.jpg"
+              src="https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&w=1600&q=80"
               alt=""
               className="h-full w-full object-cover grayscale-[0.55] brightness-90 transition-[filter,transform] duration-700 ease-brand group-hover:scale-[1.03] group-hover:grayscale-0 group-hover:brightness-100"
             />
@@ -84,7 +84,7 @@ export default function ServiceDetail() {
 
             <div className="reveal group mt-[clamp(40px,5vw,64px)] aspect-[16/10] overflow-hidden rounded-[12px] bg-bg-deep">
               <img
-                src="/uploads/svc-ai-detail.jpg"
+                src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=1400&q=80"
                 alt=""
                 className="h-full w-full object-cover grayscale-[0.55] brightness-90 transition-[filter,transform] duration-700 ease-brand group-hover:scale-[1.03] group-hover:grayscale-0 group-hover:brightness-100"
               />
