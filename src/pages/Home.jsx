@@ -25,12 +25,12 @@ export default function Home() {
       <div className="pt-[clamp(70px,9vw,120px)]">
         <Stats items={HERO_STATS} />
       </div>
+      <Work />
       <Services />
       <Process />
       <Industries />
       <TechMarquee />
       <Insights />
-      <Work />
       <Testimonials />
       <Closing />
     </main>
