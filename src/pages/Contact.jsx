@@ -22,18 +22,65 @@ function ScrollPct() {
   )
 }
 
+// Web3Forms delivers submissions to aetosai18@gmail.com.
+// Generate a free access key at https://web3forms.com using that inbox,
+// then paste it here (the key is public/frontend-safe by design).
+const WEB3FORMS_ACCESS_KEY =
+  import.meta.env.VITE_WEB3FORMS_ACCESS_KEY || 'YOUR_ACCESS_KEY_HERE'
+
 const fieldCls = 'w-full rounded-[10px] border border-line bg-surface-2 px-4 py-3.5 text-[16px] text-text placeholder:text-mute outline-none transition-colors duration-200 focus:border-line-2'
 const labelCls = 'mb-2.5 block text-[15px] text-text'
 
 const CONTACT_ROWS = [
-  ['Email', <a key="e" href="mailto:hello@aetos.ai" className="text-text hover:text-dim" data-cursor="↗">hello@aetos.ai</a>],
+  ['Email', <a key="e" href="mailto:aetosai18@gmail.com" className="text-text hover:text-dim" data-cursor="↗">aetosai18@gmail.com</a>],
   ['Demo', <a key="d" href="#" className="text-text hover:text-dim" data-cursor="↗">Book a 30-min walkthrough</a>],
   ['Follow', <a key="f" href="#" className="text-text hover:text-dim" data-cursor="↗">@aetosai</a>],
 ]
 
 export default function Contact() {
   useReveals()
-  const [sent, setSent] = useState(false)
+  const [status, setStatus] = useState('idle') // idle | sending | sent | error
+
+  async function handleSubmit(e) {
+    e.preventDefault()
+    if (status === 'sending') return
+    setStatus('sending')
+
+    const form = e.currentTarget
+    const data = Object.fromEntries(new FormData(form).entries())
+
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          access_key: WEB3FORMS_ACCESS_KEY,
+          subject: `New enquiry from ${data.name || 'website visitor'}`,
+          from_name: 'Aetos AI website',
+          name: data.name,
+          email: data.email,
+          reason: data.reason,
+          message: data.message,
+        }),
+      })
+      const result = await res.json()
+      if (result.success) {
+        setStatus('sent')
+        form.reset()
+      } else {
+        setStatus('error')
+      }
+    } catch {
+      setStatus('error')
+    }
+  }
+
+  const buttonLabel = {
+    idle: 'Send enquiry',
+    sending: 'Sending…',
+    sent: 'Thanks — I’ll be in touch',
+    error: 'Something went wrong — try again',
+  }[status]
 
   return (
     <main>
@@ -69,7 +116,7 @@ export default function Contact() {
             {/* right — form */}
             <form
               className="reveal flex flex-col gap-6 rounded-[16px] bg-surface p-[clamp(24px,3vw,40px)]"
-              onSubmit={(e) => { e.preventDefault(); setSent(true) }}
+              onSubmit={handleSubmit}
             >
               <div className="grid grid-cols-1 gap-6 min-[621px]:grid-cols-2">
                 <div>
@@ -110,9 +157,10 @@ export default function Contact() {
               <button
                 type="submit"
                 data-cursor="↗"
-                className="group mt-2 flex items-center justify-between rounded-[12px] border border-line bg-surface-2 px-6 py-5 font-mono text-[12px] uppercase tracking-[0.14em] text-text transition-colors duration-300 ease-brand hover:border-text hover:bg-[rgba(237,233,225,0.04)]"
+                disabled={status === 'sending'}
+                className="group mt-2 flex items-center justify-between rounded-[12px] border border-line bg-surface-2 px-6 py-5 font-mono text-[12px] uppercase tracking-[0.14em] text-text transition-colors duration-300 ease-brand hover:border-text hover:bg-[rgba(237,233,225,0.04)] disabled:cursor-not-allowed disabled:opacity-60"
               >
-                {sent ? 'Thanks — I’ll be in touch' : 'Send enquiry'}
+                {buttonLabel}
                 <ArrowRight className="h-4 w-4 transition-transform duration-300 ease-brand group-hover:translate-x-1" />
               </button>
             </form>
